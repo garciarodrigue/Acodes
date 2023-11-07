@@ -1,0 +1,54 @@
+/* Estilos generales */
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.cabeza {
+    text-align: center;
+}
+
+li {
+    color: black;
+}
+
+.title-section {
+    background-color: gray;
+    top: 0;
+    left: 0;
+    text-align: center;
+    position: relative;
+}
+
+.menu {
+    background-color: black;
+    text-align: start;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 20%;
+}
+
+.back-image {
+    background-color: red;
+    border-radius: 4%;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ico-usr1 {
+    background-color: blue;
+    border-radius: 150%;
+    width: 40%;
+    height: 45px;
+}
+
+.search {
+    text-align: end;
+    margin: 0;
+    position: static;
+}
