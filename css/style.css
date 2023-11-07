@@ -32,18 +32,18 @@ li {
 .back-image {
     background-color: red;
     border-radius: 4%;
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 .ico-usr1 {
     background-color: blue;
-    border-radius: 150%;
-    width: 40%;
+    border-radius: 140%;
+    width: 80%;
     height: 45px;
 }
 
