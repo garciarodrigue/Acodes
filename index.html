@@ -40,14 +40,20 @@
         <h1>imagen</h1>
         
         <!-- Agregar input para cargar imagen -->
-        <form id="imageForm">
-            <input type="file" id="imageInput" accept="image/*">
-            <br>
-            <label for="imageName">Nombre/Número para la imagen:</label>
-            <input type="text" id="imageName" placeholder="Ingrese un nombre o número">
-            <br>
-            <button type="button" onclick="uploadImage()">Subir Imagen</button>
-        </form>
+        
+    </div>
+    <br>
+    <div class="imgf">
+        <section class="imForm">
+            <form id="imageForm">
+                <input type="file" id="imageInput" accept="image/*">
+                <br>
+                <label for="imageName">Nombre/Número para la imagen:</label>
+                <input type="text" id="imageName" placeholder="Ingrese un nombre o número">
+                <br>
+                <button type="button" onclick="uploadImage()">Subir Imagen</button>
+            </form>
+        </section>
     </div>
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-analytics-compat.js"></script>
