@@ -36,7 +36,7 @@
             </nav>
         </section>
     </header>
-    <div class="back-image">
+    <div class="back-image" id="backImage">
         
         <!-- Agregar input para cargar imagen -->
         
@@ -115,30 +115,25 @@
 
             window.uploadImage = uploadImage;
             function searchImage() {
-            const searchInput = document.getElementById("searchInput").value;
+                const searchInput = document.getElementById("searchInput").value;
 
-            if (searchInput) {
-                // Realizar la lógica de búsqueda en tu base de datos
-                const imagesCollection = collection(db, "images");
-                const query = query(imagesCollection, where("name", "==", searchInput));
-                
-                getDocs(query).then((querySnapshot) => {
-                    if (!querySnapshot.empty) {
-                        // La imagen fue encontrada, mostrarla en el div back-image
-                        const imageDoc = querySnapshot.docs[0].data();
-                        const backImageDiv = document.getElementById("backImage");
-                        backImageDiv.innerHTML = `<img src="${imageDoc.downloadURL}" alt="${imageDoc.name}" style="max-width: 100%;">`;
-                    } else {
-                        // No se encontró ninguna imagen
-                        alert("Imagen no encontrada.");
-                    }
-                }).catch((error) => {
-                    console.error("Error al buscar la imagen:", error);
-                });
-            } else {
-                alert("Por favor, ingrese un nombre/número para la búsqueda.");
+                if (searchInput) {
+                    const storageRef = ref(storage, `images/${searchInput}`);
+
+                    getDownloadURL(storageRef)
+                        .then(downloadURL => {
+                            // Mostrar la imagen en el div back-image
+                            const backImageDiv = document.getElementById("backImage");
+                            backImageDiv.innerHTML = `<img src="${downloadURL}" alt="${searchInput}" style="max-width: 100%;">`;
+                        })
+                        .catch(error => {
+                            console.error("Error al buscar la imagen:", error);
+                            alert("Imagen no encontrada.");
+                        });
+                } else {
+                    alert("Por favor, ingrese un nombre/número para la búsqueda.");
+                }
             }
-        }
 
         window.searchImage = searchImage;
 </script>
