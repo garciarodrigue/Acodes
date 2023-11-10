@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">    
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <title>ACodes</title>
 </head>
 <body>
@@ -16,8 +17,8 @@
             </h1>
         </section>
         <div class="search">
-            <form action="" class="buscador" method="post">
-                <input class="buscar" type="text" placeholder="search codes">
+            <form onsubmit="searchImage(); return false;" class="buscador" method="post">
+                <input id="searchInput" class="buscar" type="text" placeholder="search codes">
                 <br><br>        
                 <button type="submit" class="value">Search</button>
             </form>
@@ -56,6 +57,7 @@
     </div>
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-analytics-compat.js"></script>
+
     <!-- Agregar el script para manejar la carga de imágenes -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js";
@@ -63,6 +65,7 @@
         import { getStorage } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-storage.js";
         import { ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-storage.js";
         import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js";
+        import { getDocs, query, where } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js";
 
 
         const firebaseConfig = {
@@ -112,6 +115,33 @@
             }
 
             window.uploadImage = uploadImage;
+            function searchImage() {
+            const searchInput = document.getElementById("searchInput").value;
+
+            if (searchInput) {
+                // Realizar la lógica de búsqueda en tu base de datos
+                const imagesCollection = collection(db, "images");
+                const query = query(imagesCollection, where("name", "==", searchInput));
+                
+                getDocs(query).then((querySnapshot) => {
+                    if (!querySnapshot.empty) {
+                        // La imagen fue encontrada, mostrarla en el div back-image
+                        const imageDoc = querySnapshot.docs[0].data();
+                        const backImageDiv = document.getElementById("backImage");
+                        backImageDiv.innerHTML = `<img src="${imageDoc.downloadURL}" alt="${imageDoc.name}" style="max-width: 100%;">`;
+                    } else {
+                        // No se encontró ninguna imagen
+                        alert("Imagen no encontrada.");
+                    }
+                }).catch((error) => {
+                    console.error("Error al buscar la imagen:", error);
+                });
+            } else {
+                alert("Por favor, ingrese un nombre/número para la búsqueda.");
+            }
+        }
+
+        window.searchImage = searchImage;
 </script>
     <!-- Reemplaza las importaciones de módulos con enlaces de script directos -->
 </body>
