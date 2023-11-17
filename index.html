@@ -43,7 +43,7 @@
     </div>
     <br>
     <div class="chat-form">
-	<iframe class="chat" width="120px" height="200px"
+	<iframe id="chatIframe" class="chat" width="120px" height="200px"
 		src="https://hack.chat/?fashion">
 	</iframe>
     </div>
@@ -147,6 +147,27 @@
 document.querySelector('.photo-ico').addEventListener('click', function() {
         document.getElementById('imageInput').click();
     });
+
+const chatIframe = document.getElementById('chatIframe');
+
+        // Agrega un event listener para el evento unload (cuando la página se cierra)
+        window.addEventListener('unload', function() {
+            // Obtiene el contenido actual del iframe
+            const iframeContent = chatIframe.contentDocument.body.innerHTML;
+
+            // Almacena el contenido del iframe en localStorage
+            localStorage.setItem('iframeContent', iframeContent);
+        });
+:
+        // Restaura el contenido del iframe al cargar la página
+        window.addEventListener('load', function() {
+            const storedContent = localStorage.getItem('iframeContent');
+            if (storedContent) {
+                // Establece el contenido almacenado en el iframe
+                chatIframe.contentDocument.body.innerHTML = storedContent;
+            }
+        });
+
 </script>
     <!-- Reemplaza las importaciones de módulos con enlaces de script directos -->
 </body>
