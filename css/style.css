@@ -26,6 +26,11 @@ li {
    position: fixed;
    top: 80%;
 }
+
+.photo-ico{
+    width:25px;
+}
+
 .menu {
     background-color: rgba(255, 255, 255, 0.616);
     text-align: start;
