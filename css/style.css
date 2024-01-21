@@ -8,7 +8,7 @@ body{
     margin: 0;
     padding: 0;
     height: 100vh; /* Esto asegura que el fondo ocupe toda la altura de la ventana */
-    display: flex;
+    display: grid;
     align-items: center;
     justify-content: center;
     background: linear-gradient(to bottom right, #030e24, #254fb9); /* Cambia los colores según tus preferencias */
