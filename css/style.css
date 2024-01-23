@@ -1,75 +1,281 @@
-/* Estilos generales */
+@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Numans&display=swap');
 * {
     box-sizing: border-box;
     margin: 0;
+    padding: 0;
 }
+:root{
+    --cuerpo:#f2f7f5;
+    --titulo:#00473e;
+    --naranja:#faae2b;
+    --redr:#fa5246;
+    --rosa:#ffa8ba;
+    
+    --nuecesUva: "Grape Nuts";
+    --numanos:"Numans", sans-serif;
+}
+html, body {
+    height: 100%;
+    min-height: 100vh;
+  overflow: hidden;
+}
+
 body{
-    background-color: #D4E6F1;
+    background:var(--cuerpo);   
 }
+
+
 .cabeza {
-    text-align: center;
+    max-width: 800px;
+    height: auto;
+    margin: 0 auto;
+    
 }
-
-li {
-    color: rgba(255, 255, 255, 0.473);
+.cabeza .title-section{
+    width: min-content;
+    margin: 0 auto;
 }
-
-.title-section {
-    background-color: rgba(255, 255, 255, 0.623);
-    top: 0;
-    left: 0;
-    text-align: center;
-    position: relative;
+.cabeza .title{
+    width: min-content;
+    height: auto;
+     color:var(--titulo);
+     font-family: var(--nuecesUva);
+     font-style: normal;
+     font-weight: 900;
+     font-size: 60px;
+     text-align: center;
+     margin: 0;
 }
-.imgf{
-   color: #9999CC;
-   position: fixed;
-   top: 80%;
+.cabeza .search{
+    max-width: 80%;
+    margin: 0 auto;
+    margin-top: 2rem;
+  
 }
+.cabeza .search form{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  
 
-.photo-ico{
-    width:25px;
 }
-
-#imageInput {
-        display: none; /* Oculta el input type="file" por defecto */
-    }
-
-    .photo-ico {
+.cabeza .search form button{
+        height: 75px;
+        width: 75px;
+        border: none;
+        border-radius: 10px;
+        background-color: transparent;
+        border: solid 1px var(--electric-violet-300);
         cursor: pointer;
-        /* Agrega estilos adicionales según sea necesario */
+       .bxs-file-find{
+            font-size: 60px;
+            color: var(--titulo);
+            transition: transform .5s ease;
+           
+        }
+}
+
+
+.cabeza .search form button:hover > .bxs-file-find{
+           transform: scale(1.2);
+           
+}
+
+.cabeza .search .buscar{
+    text-align: center;
+    font-size: large;
+    width: 80%;
+    height: 75px;
+    border-radius: 25px;
+    border-style: inherit;
+    color:var(--redr);
+    box-shadow: 0 6px 3px 0 rgb(0, 0,0,0.20);
+    transition: outline .2s ease-in;
+    
+    margin: 0 auto;
+    &:focus{
+        outline: 2px solid var(--redr);
+        
+    }
+    &::placeholder{
+        font-family: var(--numanos);
+        font-weight: 600;
+        font-size: x-large;
+        text-align: center;
+        color:var(--electric-violet-500);
     }
 
-.menu {
-    background-color: rgba(255, 255, 255, 0.616);
-    text-align: start;
+
+}
+.back-image{
+    max-width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    border-radius: 15px;
+    margin-top: 1.8rem;
+    margin-bottom: 1.8rem;
+    img{
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+        transition: transform .8s ease-out;
+        box-shadow: 1px 6px 15px 0 #00000050,-1px 6px 15px 0 #00000050;
+    }
+}
+
+.back-image:hover > img{
+    transform: scale(1.6);
+    cursor: pointer;
+}
+.chat-form{
     position: absolute;
-    top: 95px;
-    left: 0;
-    width: 20%;
+    top: 25%;
+    width: 80%;
+    height: 400px;
+    max-width: 600px;
+    margin-bottom: 1rem;
+    transform: translateX(-100%);
+    transition: transform 1s ease-in;
+    
+    iframe{
+       
+        width: 100%;
+        height: 100%;
+        border-radius: 0 20px 20px 0;
+        
+    }
+   
+}
+
+.chat-burb{
+    position: absolute;
+    background-image: url(/img/msj.svg);
+    background-color: #20201d;
+     background-position: right;
+    background-repeat:no-repeat;
+    background-size: 48%;
+    border-radius: 20px;
+    cursor: pointer;
+    right: 0;
+    transform: translate(50%,270%);
+    height: 60px;
+    width: 100px;
+}
+
+
+.imgf{
+    position: absolute;
+    width: 100%;
+    height: 450px;
+    bottom: 0;
+    right: 0;
+    transform: translateY(100%);
+    transition: transform 1s ease;
+}
+#imageForm{
+    width: 100%;
+    height: 450px;
+    color: var(--titulo);
+    font-weight: 1000;
+    background-color: var(--naranja);
+    bottom: 0;
+    border-radius: 35px 35px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 25px;
+    font-family: var(--numanos);
+    border-top: solid 4px var(--redr);
+    .code{
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    
+    }
+    button{
+       border-style: none;
+       background-color: transparent;
+       transition: transform .8s ease-in;
+    }
+    button:hover{
+        transform: scale(.8);
+        cursor: pointer;
+    }
+    
+}
+.bxs-send{
+    font-size: 50px;
+    color:var(--redr);
+
+}
+.bxs-camera-plus{
+    font-size: 50px;
+    cursor: pointer;
+    color: var(--titulo);
+    transition: transform .8s ease-out;
+    &:hover{
+        transform: scale(1.1 );
+    }
+
+}
+
+.img_img{
+    height: 100px;
+    width: 80px;
+    position:absolute;
+    border-radius: 20px;
+    inset: 0;
+    margin: auto;
+    transform: translateY(-230%);
+
+    display: flex;
+    
+    justify-content: center;
+   
+    img{
+        width: 80px;
+        height: 80px;
+        
+        cursor: pointer;
+    }
+   
+
+}
+#imageName{
+    height: 45px;
+    width: 100%;
+    text-align: center;
+    border: none;
+    border-radius: 25px;
+    color: #00473e;
+    font-size: 25px;
+    transition: outline .2s ease-in;
+    &::placeholder{
+        font-size: 18px;
+        font-family: var(--numanos);
+        font-weight: 800;
+        color: var(--titulo);
+        
+    
+    }
     
 }
 
-.back-image {
-    background-color: rgba(10, 10, 10, 0.397);
-    border-radius: 4%;
-    width: 200px;
-    height: 200px;
-    position: absolute;
-    top: 40%;
-    left: 56%;
-    transform: translate(-50%, -50%);
+#imageName:focus{
+   outline: solid 2px var(--titulo);
 }
 
-.ico-usr1 {
-    background-color: rgba(128, 128, 128, 0.795);
-    border-radius: 140%;
-    width: 80%;
-    height: 45px;
+.deactive{
+    display: none;
 }
 
-.search {
-    text-align: end;
-    margin: 0;
-    position: static;
-}
+
+
+
+
+
