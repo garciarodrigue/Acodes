@@ -2,49 +2,78 @@
 
 body{
 
-    margin: 0;
-    padding: 0;
-    height: 100vh; /* Esto asegura que el fondo ocupe toda la altura de la ventana */
-    display: grid;
+    margin: 0%;
+    padding: 0%;
+    height: 100vh;
+ 
+    display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to bottom right, #030e24, #254fb9); /* Cambia los colores según tus preferencias */
+    background: linear-gradient(to bottom right, #030e24, #254fb9); 
 
 }
 .cabeza {
+    
+    margin-left: 0;
+    float: left;
     position: absolute;
-    top: 10%;
-    left: 85%;
+    top: 20%;
+    left: 40%;
     transform: translate(-50%, -50%);
-    padding: 20px;
+    padding: 10px;
 }
 .title-section{
-    position: absolute;
-    top: 5%;
-    left: 50%;
+    position: fixed;
+    top: 7%;
+    left: 44%;
     transform: translate(-50%, -50%);
     padding: 10px;
     color: black;
 }
-.chat-form{
-    width:250px;
-    height:300px;
+.chatIframe{
+    position: fixed;
+    top: 0;
+    left: 0;
+    float: left;
+    width: 20px; 
+    margin-left: 0;     
+}
+.chatIframe{
+    width: 100%;
+    height:160px;
     position: absolute;
     top: 40%;
     left: 10%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
+    transform: translate(-10%, -50%);
+    padding: 20xp;
     color: black;
 }
+#chatIframe{
+  width: 300%;
+  height: 190px;
+  position: relative;
+  overflow: hidden;
+  transition: width 0.5s, height 0.5s, opacity 0.5s, border-radius 1s;
 
+}
+#chatIframe.hidden{
+    width: 0;
+    height: 0;
+    opacity: 0;
+    border-radius: 50%;
+}
+.backImage{
+    border-radius: 200%;
+}
 li {
-    color: rgba(255, 255, 255, 0.473);
+    color: hsla(0, 0%, 100%, 0.473);
 }
 
 .imgf{
+    border-radius: 45%;
    color: #9999CC;
    position: fixed;
-   top: 80%;
+   top: 50%;
    left: 3%;
 }
 
@@ -58,7 +87,7 @@ li {
 
     .photo-ico {
         cursor: pointer;
-        /* Agrega estilos adicionales según sea necesario */
+        
     }
 
 .menu {
@@ -73,12 +102,12 @@ li {
 
 .back-image {
     background-color: rgba(10, 10, 10, 0.397);
-    border-radius: 4%;
+    
     width: 200px;
-    height: 200px;
+    height: 250px;
     position: absolute;
-    top: 40%;
-    left: 56%;
+    top: 45%;
+    left: 45%;
     transform: translate(-50%, -50%);
 }
 

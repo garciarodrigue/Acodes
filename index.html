@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">    
-    
+    <script src="js/javascript.js"></script>
+
     <title>ACodes</title>
 </head>
 <body>
     
-        <section class="title-section">
+        <section class="title-section text-center">
             <h1 class="title">
                 Admin Codes
             </h1>
         </section>
-        <section class="cabeza">
+        <section  class="cabeza">
         <div class="search">
             <form onsubmit="searchImage(); return false;" class="buscador" method="post">
                 <input id="searchInput" class="buscar" type="text" placeholder="search codes">
@@ -30,11 +31,13 @@
         <!-- Agregar input para cargar imagen -->
     </div>
     <br>
-    <section class="chat-form">
-	<iframe id="chatIframe" class="chat"
-		src="https://hack.chat/?fashion">
-	</iframe>
-    </section>
+    <div id="chatIframe" class="chatIframe">
+    	<iframe src="https://hack.chat/?fashion" id="chatform" >
+            <textarea id="chatinput" autofocus class="chat-form">
+
+        </iframe>
+    </textarea>
+</div>
     <br>
     <div class="imgf">
         <section class="imForm">
@@ -137,29 +140,6 @@ document.querySelector('.photo-ico').addEventListener('click', function() {
     });
 
 </script>
-<script>
-const chatIframe = document.getElementById('chatIframe');
-
-        // Agrega un event listener para el evento unload (cuando la página se cierra)
-        window.addEventListener('unload', function() {
-            // Obtiene el contenido actual del iframe
-            const iframeContent = chatIframe.contentDocument.body.innerHTML;
-
-            // Almacena el contenido del iframe en localStorage
-            localStorage.setItem('iframeContent', iframeContent);
-        });
-:
-        // Restaura el contenido del iframe al cargar la página
-        window.addEventListener('load', function() {
-            const storedContent = localStorage.getItem('iframeContent');
-            if (storedContent) {
-                // Establece el contenido almacenado en el iframe
-                chatIframe.contentDocument.body.innerHTML = storedContent;
-            }
-        });
-
-</script>
-    <!-- Reemplaza las importaciones de módulos con enlaces de script directos -->
 </body>
 </html>
 
