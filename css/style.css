@@ -1,19 +1,48 @@
 /* Estilos generales */
-
-body{
-
+body {
     margin: 0%;
     padding: 0%;
     height: 100vh;
- 
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to bottom right, #030e24, #254fb9); 
-
+    background: linear-gradient(to bottom right, #030e24, #04040a);
+    overflow: hidden;
 }
+
+
+
+.space {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background-color: #ffffff;
+    opacity: 0.5;
+    border-radius: 50%;
+    animation: shootingStar 3s linear infinite, blink 3s alternate infinite;
+}
+
+@keyframes shootingStar {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translate(-100vw, 100vh) scale(0.5);
+        opacity: 0;
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .cabeza {
-    
     margin-left: 0;
     float: left;
     position: absolute;
@@ -22,73 +51,69 @@ body{
     transform: translate(-50%, -50%);
     padding: 10px;
 }
-.title-section{
+
+.title-section {
     position: fixed;
     top: 7%;
     left: 44%;
     transform: translate(-50%, -50%);
     padding: 10px;
     color: black;
+
 }
-.chatIframe{
-    position: fixed;
-    top: 0;
-    left: 0;
-    float: left;
-    width: 20px; 
-    margin-left: 0;     
+
+.title-section h1.title {
+    animation-name: slideIn;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
 }
-.chatIframe{
+
+.chatIframe {
     width: 100%;
-    height:160px;
-    position: absolute;
+    height: 160px;
+    position: relative;
     top: 40%;
     left: 10%;
     transform: translate(-10%, -50%);
-    padding: 20xp;
+    padding: 10xp;
     color: black;
 }
-#chatIframe{
-  width: 300%;
-  height: 190px;
-  position: relative;
-  overflow: hidden;
-  transition: width 0.5s, height 0.5s, opacity 0.5s, border-radius 1s;
 
+#chatIframe {
+    width: 300%;
+    top: 355px;
 }
-#chatIframe.hidden{
-    width: 0;
-    height: 0;
-    opacity: 0;
-    border-radius: 50%;
-}
-.backImage{
+
+.backImage {
     border-radius: 200%;
 }
+
 li {
     color: hsla(0, 0%, 100%, 0.473);
 }
 
-.imgf{
+.imgf {
+    align-items: center;
+    text-align: center;
     border-radius: 45%;
-   color: #9999CC;
-   position: fixed;
-   top: 50%;
-   left: 3%;
+    color: #9999CC;
+    position: fixed;
+    top: 60%;
+    left: 9%;
 }
 
-.photo-ico{
-    width:25px;
+.photo-ico {
+    width: 25px;
 }
 
 #imageInput {
-        display: none; /* Oculta el input type="file" por defecto */
-    }
+    display: none;
+}
 
-    .photo-ico {
-        cursor: pointer;
-        
-    }
+.photo-ico {
+    cursor: pointer;
+}
 
 .menu {
     background-color: rgba(255, 255, 255, 0.616);
@@ -97,12 +122,10 @@ li {
     top: 95px;
     left: 0;
     width: 20%;
-    
 }
 
 .back-image {
     background-color: rgba(10, 10, 10, 0.397);
-    
     width: 200px;
     height: 250px;
     position: absolute;
@@ -122,4 +145,88 @@ li {
     text-align: end;
     margin: 0;
     position: static;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+.search form {
+    animation-name: fadeInUp;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+
+/* Estilos adicionales para clases e IDs mencionados */
+
+/* Estilos para elementos específicos */
+
+.backImage {
+    border: 2px solid white; /* Añade un borde blanco de 2px */
+    border-radius: 50%; /* Hace que la imagen tenga forma de círculo */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Añade una sombra con transparencia */
+}
+
+.imgf {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Añade una sombra alrededor de la imagen */
+    transition: all 0.3s ease; /* Agrega una transición suave a los cambios */
+}
+
+.imgf:hover {
+    transform: scale(1.1); /* Escala la imagen al 110% en hover */
+}
+
+.menu {
+    border: 1px solid rgba(0, 0, 0, 0.3); /* Añade un borde delgado y semitransparente */
+    border-radius: 10px; /* Hace que el menú tenga bordes redondeados */
+}
+
+.menu li {
+    padding: 5px; /* Añade un espacio interno a los elementos de la lista */
+    transition: all 0.3s ease; /* Agrega una transición suave a los cambios */
+}
+
+.menu li:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Cambia el color de fondo al pasar el ratón */
+}
+
+
+star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    animation: shootingStar linear infinite;
+}
+
+@keyframes shootingStar {
+    0% {
+        transform: translate(100vw, -10px) scale(0.2);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-100px, 100vh) scale(1);
+        opacity: 1;
+    }
 }

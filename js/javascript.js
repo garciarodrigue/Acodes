@@ -1,19 +1,14 @@
-var iframe = document.getElementById('chatform');
+document.addEventListener('DOMContentLoaded', function() {
+    // Tu código JavaScript aquí
+    const container = document.getElementById('stars-container');
 
-// Escuchar mensajes del iframe
-window.addEventListener('message', function(event) {
-    if (event.origin === '') {
-        // Realizar acciones basadas en el mensaje recibido
-        console.log('Mensaje recibido desde el iframe:', event.data);
+    for (let i = 0; i < 50; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.left = `${Math.random() * 100}vw`;
+        star.style.top = `${Math.random() * 100}vh`;
+        star.style.animationDuration = `${Math.random() * 3 + 1}s`; // Duración aleatoria de la animación
+        star.style.animationDelay = `${Math.random() * 5}s`; // Retraso aleatorio de la animación
+        container.appendChild(star);
     }
 });
-
-// Enviar mensaje al iframe
-function enviarMensajeAlIframe(mensaje) {
-    iframe.contentWindow.postMessage(mensaje, 'https://hack.chat/?fashion');
-
-document.getElementById('searchInput').addEventListener('click', function() {
-    var hiddenDiv = document.getElementById("chatIframe");
-    hiddenDiv.classList.toggle('hidden');
-});
-}
