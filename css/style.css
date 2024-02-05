@@ -125,7 +125,7 @@ body{
         box-shadow: 1px 6px 15px 0 #00000050,-1px 6px 15px 0 #00000050;
     }
 }
-
+//hay un error en el transform: scale(1.6) hay expandir la imagen no vuelve a su posicion normal verificar
 .back-image:hover > img{
     transform: scale(1.6);
     cursor: pointer;
