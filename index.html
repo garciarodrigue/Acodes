@@ -20,9 +20,12 @@
         <section  class="cabeza">
         <div class="search">
             <form onsubmit="searchImage(); return false;" class="buscador" method="post">
-                <input id="searchInput" class="buscar" type="text" placeholder="search codes">
-                <br><br>        
-                <button type="submit" class="value">Search</button>
+                <input id="searchInput" class="buscar" type="text" placeholder="search codes"> 
+                <button  type="submit" class="value">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+               </svg> 
+            </button>      
             </form>
         </div>
     </section>
@@ -38,6 +41,7 @@
             <form id="imageForm">
 		    <label for="imageInput" class="photo-ico"> 
             <img width="35px" src="img/camera.png" alt="Camera Icon">
+
             <input type="file" id="imageInput" accept="image/*">
         </img> 
     </label>
@@ -45,7 +49,12 @@
                 <label for="imageName">Codigo del producto:</label>
 		<br>
                 <input type="text" id="imageName" placeholder="codigo">
-                <button type="button" onclick="uploadImage()">enviar</button>
+                <button class="send" type="button" onclick="uploadImage()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-plus" viewBox="0 0 16 16">
+                        <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855a.75.75 0 0 0-.124 1.329l4.995 3.178 1.531 2.406a.5.5 0 0 0 .844-.536L6.637 10.07l7.494-7.494-1.895 4.738a.5.5 0 1 0 .928.372zm-2.54 1.183L5.93 9.363 1.591 6.602z"/>
+                        <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-3.5-2a.5.5 0 0 0-.5.5v1h-1a.5.5 0 0 0 0 1h1v1a.5.5 0 0 0 1 0v-1h1a.5.5 0 0 0 0-1h-1v-1a.5.5 0 0 0-.5-.5"/>
+                      </svg>
+                </button>
 		<br>
 		<br>
             </form>

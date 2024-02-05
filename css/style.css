@@ -9,7 +9,21 @@ body {
     background: linear-gradient(to bottom right, #030e24, #04040a);
     overflow: hidden;
 }
-
+svg{
+    color: #e4e4ee;
+}
+.send{
+    background-color: #04040a;
+    border-color: #04040a;
+}
+input{
+    background-color: #04040a;
+    border-color: #04040a;
+}
+.value{
+    background-color: #04040a;
+    border-color: #04040a;
+}
 #error{
     text-align: center;
     color: red;
