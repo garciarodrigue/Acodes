@@ -16,7 +16,6 @@
                 Admin Codes
             </h1>
         </section>
-        <div id="stars-container"></div>
 
         <section  class="cabeza">
         <div class="search">
@@ -29,7 +28,7 @@
     </section>
    
     <div class="back-image" id="backImage">
-        
+        <h3 id="error"></h3>
         <!-- Agregar input para cargar imagen -->
     </div>
     <br>
@@ -37,7 +36,12 @@
     <div class="imgf">
         <section class="imForm">
             <form id="imageForm">
-		    <label for="imageInput" class="photo-ico"> <img width="35px" src="img/camera.png" alt="Camera Icon"> </label><br><input type="file" id="imageInput" accept="image/*"></img>
+		    <label for="imageInput" class="photo-ico"> 
+            <img width="35px" src="img/camera.png" alt="Camera Icon">
+            <input type="file" id="imageInput" accept="image/*">
+        </img> 
+    </label>
+    <br>
                 <label for="imageName">Codigo del producto:</label>
 		<br>
                 <input type="text" id="imageName" placeholder="codigo">
@@ -103,20 +107,22 @@
                 name: imageName,
                 downloadURL: downloadURL
             });
-
-            console.log("Imagen subida y URL guardada en Firestore:", downloadURL);
+            const miTitulo = document.getElementById('error');
+            miTitulo.textContent = "Imagen subida"
             }).catch(error => {
             console.error("Error al subir la imagen:", error);
             });
             } else {
-            alert("Por favor, seleccione una imagen e ingrese un número.");
+                const miTitulo = document.getElementById('error');
+
+                miTitulo.textContent = "Por favor, seleccione una imagen e ingrese un número."
             }
             }
 
             window.uploadImage = uploadImage;
             function searchImage() {
                 const searchInput = document.getElementById("searchInput").value;
-
+                const miTitulo = document.getElementById('error');
                 if (searchInput) {
                     const storageRef = ref(storage, `images/${searchInput}`);
 
@@ -128,7 +134,7 @@
                         })
                         .catch(error => {
                             console.error("Error al buscar la imagen:", error);
-                            alert("Imagen no encontrada.");
+                            miTitulo.textContent = "Producto no Disponible"
                         });
                 } else {
                     alert("Por favor, ingrese un nombre/número para la búsqueda.");
