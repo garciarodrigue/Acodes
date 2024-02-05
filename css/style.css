@@ -13,14 +13,18 @@ svg{
     color: #e4e4ee;
 }
 .send{
+    border-top-left-radius: 25%;
     background-color: #04040a;
     border-color: #04040a;
 }
 input{
+    border-bottom-right-radius: 40%;
+    color: whitesmoke;
     background-color: #04040a;
     border-color: #04040a;
 }
 .value{
+    border-top-right-radius: 40%;
     background-color: #04040a;
     border-color: #04040a;
 }
