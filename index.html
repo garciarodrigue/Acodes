@@ -59,13 +59,7 @@
     </textarea>
    
 </div>
-<section>
-    <h1>Voice Chat</h1>
-    <div id="user-list"></div>
-    <audio id="audio-element" controls></audio>
-</section>
 
-    <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-analytics-compat.js"></script>
 
@@ -153,46 +147,6 @@
 
 document.querySelector('.photo-ico').addEventListener('click', function() {
         document.getElementById('imageInput').click();
-    });
-
-const socket = io();
-
-socket.on('connect', () => {
-    console.log('Connected to server');
-});
-
-socket.on('user-connected', (userId) => {
-    console.log(`User connected: ${userId}`);
-    // Add user to user list
-    document.getElementById('user-list').innerHTML += `<p>User connected: ${userId}</p>`;
-});
-
-socket.on('user-disconnected', (userId) => {
-    console.log(`User disconnected: ${userId}`);
-    // Remove user from user list
-    document.getElementById('user-list').innerHTML += `<p>User disconnected: ${userId}</p>`;
-});
-
-socket.on('voice-message', (data) => {
-    console.log(`Received voice message from ${data.senderId}`);
-    // Set the received audio data to the audio element
-    const audioElement = document.getElementById('audio-element');
-    audioElement.srcObject = new MediaStream([data.data]);
-    audioElement.play();
-});
-
-// Capture user's audio and send it to the server
-navigator.mediaDevices.getUserMedia({ audio: true })
-    .then(stream => {
-        const mediaRecorder = new MediaRecorder(stream);
-        mediaRecorder.ondataavailable = event => {
-            // Send voice message to server
-            socket.emit('voice-message', event.data);
-        };
-        mediaRecorder.start();
-    })
-    .catch(error => {
-        console.error('Error accessing microphone:', error);
     });
 </script>
 </body>
