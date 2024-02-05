@@ -6,7 +6,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to bottom right, #030e24, #04040a);
+    background: linear-gradient(to bottom right, #05132e, #04040a);
     overflow: hidden;
 }
 svg{
@@ -188,4 +188,7 @@ li {
 
 .menu li:hover {
     background-color: rgba(255, 255, 255, 0.3); /* Cambia el color de fondo al pasar el ratón */
+}
+.title{
+    color: #9999CC;
 }
